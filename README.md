@@ -6,8 +6,9 @@
 
 Right now the API only has one endpoint for the profile information.
 
-```
-GET https://platzi.now.sh/profile/{username}
+```bash
+# GET https://platzi.now.sh/profile/eperedo
+# Status: 200
 ```
 
 It will return the following information
@@ -36,6 +37,22 @@ It will return the following information
 | totalAnswers       | The total of answers made by the user                                                 |
 | twitter            | twitter url profile page of the user                                                  |
 | website            | website url of the user                                                               |
+
+If the username does not exists you will receive a 404 HTTP status (NOT FOUND)
+
+```bash
+# GET https://platzi.now.sh/profile/a_not_real_username
+# Status: 404
+```
+
+if the username has a private profile you will receive a 403 HTTP status (Forbidden)
+
+```bash
+# GET https://platzi.now.sh/profile/Acosticarito
+# Status: 403
+```
+
+**⚠️ IMPORTANT️ ⚠️ : I am using Acosticarito username since it was the first one who show in the forums page and happy coincidence she has a private profile. Please do not try to contact her outside platzi, do not be the weird and creepy guy. If you are Acosticarito and you do not want to be expose in here please open an issue in this repo and I will remove inmediately**
 
 ### Development
 
