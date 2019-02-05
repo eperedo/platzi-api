@@ -21,6 +21,7 @@ async function getProfileInfo(username) {
 		} else if (isError) {
 			return 2;
 		} else {
+			const avatarDom = document.querySelector('img.Layout--radius');
 			const facebookDom = document.querySelector('.icon-fcbk');
 			const twitterDom = document.querySelector('.icon-twt');
 			const flagDom = document.querySelector('.ProfileHeader-flag');
@@ -31,13 +32,16 @@ async function getProfileInfo(username) {
 			const coursesDom = document.querySelectorAll('.Course.is-principal');
 			const pointsDom = document.querySelectorAll('.ProfileScore-number');
 			const oldCoursesDom = document.querySelectorAll('.Course.is-deprecated');
+			const isLiveNow = document.querySelector('.LiveMainHeader-link');
 			const profileInfo = {
+				avatar: avatarDom ? avatarDom.src : '',
 				bioDom: bioDom ? bioDom.textContent : '',
 				careers: [],
 				country: flagDom ? flagDom.alt : '',
 				courses: [],
 				facebook: facebookDom ? facebookDom.href : '',
 				flagUrl: flagDom ? flagDom.src : '',
+				platziLive: isLiveNow ? isLiveNow.href : '',
 				name: nameDom ? nameDom.textContent : '',
 				oldCourses: [],
 				totalPoints: pointsDom[0] ? Number(pointsDom[0].textContent) : 0,
