@@ -1,0 +1,17 @@
+{
+  "name": "puppeteer-apis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Eduardo P. Rivero <jrperedo@gmail.com> (https://blog.eperedo.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "chrome-aws-lambda": "1.11.2",
+    "hapi": "18.1.0",
+    "puppeteer-core": "1.12.2"
+  }
+}
