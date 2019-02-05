@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "The unofficial platzi api",
 	"scripts": {
-		"start": "CHROME_PATH='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' node src/index.js",
+		"start": "node src/index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [

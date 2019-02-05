@@ -8,11 +8,18 @@ const server = new Hapi.Server({
 	port: process.env.PORT || 4000,
 });
 
+server.method('scrapper', scrapper, {
+	cache: {
+		expiresIn: 60 * 1000,
+		generateTimeout: 10000,
+	},
+});
+
 server.route({
 	async handler(request, h) {
 		const { username } = request.params;
 		if (username) {
-			const result = await scrapper(username);
+			const result = await server.methods.scrapper(username);
 			if (typeof result === 'number') {
 				if (result === 1) {
 					return h.response().code(403);

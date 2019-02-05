@@ -1,7 +1,13 @@
 {
 	"version": 2,
 	"name": "platzi-api",
-	"builds": [{ "src": "src/index.js", "use": "@now/node-server" }],
+	"builds": [
+		{
+			"src": "src/index.js",
+			"use": "@now/node-server",
+			"config": { "maxLambdaSize": "40mb" }
+		}
+	],
 	"routes": [{ "src": "/(.*)", "dest": "src/index.js" }],
 	"env": {
 		"NODE_ENV": "production"
