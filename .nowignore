@@ -1,5 +1,7 @@
 *.test.js
 node_modules
-README.md
 .prettierrc
 .env
+LICENSE
+*.md
+.github
