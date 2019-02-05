@@ -3,13 +3,12 @@
 const chrome = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
 const urlBase = 'https://platzi.com';
-
 async function getProfileInfo(username) {
 	const browser = await puppeteer.launch({
 		args: chrome.args,
 		// ugly hack since chrome-aws-lambda cannot be loaded from local
 		executablePath: process.env.CHROME_PATH || (await chrome.executablePath),
-		headless: chrome.headless,
+		headless: Boolean(process.env.CHROME_HEADLESS) || chrome.headless,
 	});
 	const page = await browser.newPage();
 	await page.goto(`${urlBase}/@${username}`);
@@ -35,7 +34,7 @@ async function getProfileInfo(username) {
 			const isLiveNow = document.querySelector('.LiveMainHeader-link');
 			const profileInfo = {
 				avatar: avatarDom ? avatarDom.src : '',
-				bioDom: bioDom ? bioDom.textContent : '',
+				bio: bioDom ? bioDom.textContent : '',
 				careers: [],
 				country: flagDom ? flagDom.alt : '',
 				courses: [],

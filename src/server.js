@@ -1,5 +1,8 @@
 'use strict';
 
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+}
 const Hapi = require('hapi');
 const scrapper = require('./scrapper');
 
@@ -18,21 +21,28 @@ server.method('scrapper', scrapper, {
 server.route({
 	async handler(request, h) {
 		const { username } = request.params;
-		if (username) {
-			const result = await server.methods.scrapper(username);
-			if (typeof result === 'number') {
-				if (result === 1) {
-					return h.response().code(403);
-				} else if (result === 2) {
-					return h.response().code(404);
+		try {
+			if (username) {
+				const result = await server.methods.scrapper(username);
+				if (typeof result === 'number') {
+					if (result === 1) {
+						return h.response().code(403);
+					} else if (result === 2) {
+						return h.response().code(404);
+					}
 				}
+				return h.response(result);
 			}
-			return h.response(result);
+			return h.response().code(400);
+		} catch (error) {
+			console.log('Err', error);
+			return error;
 		}
-		return h.response().code(400);
 	},
 	method: 'GET',
 	path: '/profile/{username}',
 });
+
+process.on('uncaughtException', () => process.exit(1));
 
 module.exports = server;
