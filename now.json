@@ -1,6 +1,6 @@
 {
 	"version": 2,
-	"name": "platzi-api",
+	"name": "platzi-api-2",
 	"builds": [
 		{
 			"src": "src/index.js",

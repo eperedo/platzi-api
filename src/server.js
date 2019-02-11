@@ -9,11 +9,16 @@ const scrapper = require('./scrapper');
 const server = new Hapi.Server({
 	host: '0.0.0.0',
 	port: process.env.PORT || 4000,
+	routes: {
+		cors: {
+			origin: ['*'],
+		},
+	},
 });
 
 server.method('scrapper', scrapper, {
 	cache: {
-		expiresIn: 60 * 1000,
+		expiresIn: 300 * 1000,
 		generateTimeout: 30000,
 	},
 });
