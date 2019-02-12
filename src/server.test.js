@@ -57,4 +57,18 @@ describe('Platzi API', () => {
 		expect.assertions(1);
 		expect(statusCode).toBe(403);
 	});
+
+	test('GET /profiles/{username}/{username2}/matches must return 200', async () => {
+		const route = {
+			method: 'GET',
+			url: '/profiles/eperedo/alex_rope/matches',
+		};
+
+		const { statusCode, result } = await server.inject(route);
+
+		console.log('Result', result);
+
+		expect.assertions(1);
+		expect(statusCode).toBe(200);
+	});
 });

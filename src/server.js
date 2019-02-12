@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const Hapi = require('hapi');
 const scrapper = require('./scrapper');
+const matchRoute = require('./match.route');
 
 const server = new Hapi.Server({
 	host: '0.0.0.0',
@@ -40,13 +41,14 @@ server.route({
 			}
 			return h.response().code(400);
 		} catch (error) {
-			console.log('Err', error);
 			return error;
 		}
 	},
 	method: 'GET',
 	path: '/profile/{username}',
 });
+
+server.route(matchRoute);
 
 process.on('uncaughtException', () => process.exit(1));
 
