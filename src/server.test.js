@@ -68,10 +68,12 @@ describe('Platzi API', () => {
 
 		const { statusCode, result } = await server.inject(route);
 
-		expect.assertions(6);
+		expect.assertions(8);
 		expect(result.totalMatches).toBeDefined();
 		expect(result.username).toBe(username);
 		expect(result.username2).toBe(username2);
+		expect(result.usernameAvatar).toBeDefined();
+		expect(result.username2Avatar).toBeDefined();
 		expect(result.totalCareers).toBeDefined();
 		expect(result.match).toBeDefined();
 		expect(statusCode).toBe(200);

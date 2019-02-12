@@ -24,6 +24,8 @@ async function profileMatch(username, username2, scrapper) {
 			{ totalMatches: 0, username, username2, careers: [] },
 		);
 
+		results.usernameAvatar = profile.avatar;
+		results.username2Avatar = profileTwo.avatar;
 		results.totalCareers =
 			skills.length + skillsTwo.length - results.totalMatches;
 		results.match = results.totalMatches / results.totalCareers;
