@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const Hapi = require('hapi');
 const scrapper = require('./scrapper');
+const profileMatch = require('./match.method');
 const matchRoute = require('./match.route');
 
 const server = new Hapi.Server({
@@ -22,6 +23,14 @@ server.method('scrapper', scrapper, {
 		expiresIn: 300 * 1000,
 		generateTimeout: 30000,
 	},
+});
+
+server.method('profileMatch', profileMatch, {
+	cache: {
+		expiresIn: 300 * 1000,
+		generateTimeout: 30000,
+	},
+	generateKey: (key, key2) => `${key}-${key2}`,
 });
 
 server.route({

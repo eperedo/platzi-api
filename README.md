@@ -4,7 +4,9 @@
 
 ### Documentation
 
-Right now the API only has one endpoint for the profile information.
+Right now the API only has two endpoints.
+
+### Profile [/profile/{username}]
 
 ```bash
 # GET https://platzi.now.sh/profile/eperedo
@@ -53,6 +55,27 @@ if the username has a private profile you will receive a 403 HTTP status (Forbid
 ```
 
 **⚠️ IMPORTANT️ ⚠️ : I am using Acosticarito username since it was the first one who show in the forums page and happy coincidence she has a private profile. Please do not try to contact her outside platzi, do not be the weird and creepy guy. If you are Acosticarito and you do not want to be expose in here please open an issue in this repo and I will remove inmediately**
+
+### Profile [/profiles/{username}/{username2}/matches]
+
+```bash
+# GET https://platzi.now.sh/profiles/eperedo/alex_rope/matches
+# Status: 200
+```
+
+| Property Name | Description                                                |
+| ------------- | ---------------------------------------------------------- |
+| match         | The percentage match between 2 platzi users                |
+| totalMatches  | Total of careers and courses who both users have in common |
+| totalCareers  | Total of careers both users have approved in platzi        |
+
+If the API can have enought information about the two users it will return a 400 status code, probably because
+either the user does not exist or have a private profile.
+
+```bash
+# GET https://platzi.now.sh/profiles/invalid_user/private_user/matches
+# Status: 400
+```
 
 ### Development
 

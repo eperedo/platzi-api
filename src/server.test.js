@@ -59,16 +59,21 @@ describe('Platzi API', () => {
 	});
 
 	test('GET /profiles/{username}/{username2}/matches must return 200', async () => {
+		const username = 'eperedo';
+		const username2 = 'alex_rope';
 		const route = {
 			method: 'GET',
-			url: '/profiles/eperedo/alex_rope/matches',
+			url: `/profiles/${username}/${username2}/matches`,
 		};
 
 		const { statusCode, result } = await server.inject(route);
 
-		console.log('Result', result);
-
-		expect.assertions(1);
+		expect.assertions(6);
+		expect(result.totalMatches).toBeDefined();
+		expect(result.username).toBe(username);
+		expect(result.username2).toBe(username2);
+		expect(result.totalCareers).toBeDefined();
+		expect(result.match).toBeDefined();
 		expect(statusCode).toBe(200);
 	});
 });
