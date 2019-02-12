@@ -17,10 +17,11 @@ async function profileMatch(username, username2, scrapper) {
 				const currentSkill = skillsTwo.find(c => c.title === skill.title);
 				if (currentSkill) {
 					acum.totalMatches += 1;
+					acum.careers.push(currentSkill);
 				}
 				return acum;
 			},
-			{ totalMatches: 0, username, username2 },
+			{ totalMatches: 0, username, username2, careers: [] },
 		);
 
 		results.totalCareers =

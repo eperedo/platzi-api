@@ -1,6 +1,6 @@
 'use strict';
 
-const Joi = require('Joi');
+const Joi = require('joi');
 
 const route = {
 	async handler(request, h) {
