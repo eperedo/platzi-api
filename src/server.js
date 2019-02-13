@@ -20,14 +20,14 @@ const server = new Hapi.Server({
 
 server.method('scrapper', scrapper, {
 	cache: {
-		expiresIn: 60 * 1000,
+		expiresIn: 10 * 1000,
 		generateTimeout: 30000,
 	},
 });
 
 server.method('profileMatch', profileMatch, {
 	cache: {
-		expiresIn: 300 * 1000,
+		expiresIn: 10 * 1000,
 		generateTimeout: 30000,
 	},
 	generateKey: (key, key2) => `${key}-${key2}`,
