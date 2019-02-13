@@ -20,7 +20,7 @@ const server = new Hapi.Server({
 
 server.method('scrapper', scrapper, {
 	cache: {
-		expiresIn: 300 * 1000,
+		expiresIn: 60 * 1000,
 		generateTimeout: 30000,
 	},
 });
