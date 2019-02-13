@@ -50,7 +50,8 @@ server.route({
 			}
 			return h.response().code(400);
 		} catch (error) {
-			return error;
+			console.log('WAT', error);
+			throw error;
 		}
 	},
 	method: 'GET',
