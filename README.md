@@ -9,7 +9,7 @@ Right now the API only has two endpoints.
 ### Profile [/profile/{username}]
 
 ```bash
-# GET https://platzi.now.sh/profile/eperedo
+# GET https://platzi-match.herokuapp.com/profile/eperedo
 # Status: 200
 ```
 
@@ -43,14 +43,14 @@ It will return the following information
 If the username does not exists you will receive a 404 HTTP status (NOT FOUND)
 
 ```bash
-# GET https://platzi.now.sh/profile/a_not_real_username
+# GET https://platzi-match.herokuapp.com/profile/a_not_real_username
 # Status: 404
 ```
 
 if the username has a private profile you will receive a 403 HTTP status (Forbidden)
 
 ```bash
-# GET https://platzi.now.sh/profile/Acosticarito
+# GET https://platzi-match.herokuapp.com/profile/Acosticarito
 # Status: 403
 ```
 
@@ -59,7 +59,7 @@ if the username has a private profile you will receive a 403 HTTP status (Forbid
 ### Profile [/profiles/{username}/{username2}/matches]
 
 ```bash
-# GET https://platzi.now.sh/profiles/eperedo/alex_rope/matches
+# GET https://platzi-match.herokuapp.com/profiles/eperedo/alex_rope/matches
 # Status: 200
 ```
 
@@ -73,7 +73,7 @@ If the API can have enought information about the two users it will return a 400
 either the user does not exist or have a private profile.
 
 ```bash
-# GET https://platzi.now.sh/profiles/invalid_user/private_user/matches
+# GET https://platzi-match.herokuapp.com/profiles/invalid_user/private_user/matches
 # Status: 400
 ```
 
