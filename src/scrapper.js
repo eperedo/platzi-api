@@ -8,7 +8,7 @@ async function getProfileInfo(username) {
 		args: ['--no-sandbox', '--disable-setuid-sandbox'],
 		// ugly hack since chrome-aws-lambda cannot be loaded from local
 		// executablePath: process.env.CHROME_PATH || (await chrome.executablePath),
-		headless: Boolean(process.env.CHROME_HEADLESS) || chrome.headless,
+		// headless: false,
 	});
 	const page = await browser.newPage();
 	await page.goto(`${urlBase}/@${username}`);
