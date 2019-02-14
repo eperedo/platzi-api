@@ -21,5 +21,8 @@
 	"devDependencies": {
 		"dotenv": "6.2.0",
 		"jest": "24.1.0"
+	},
+	"engines": {
+		"node": "8.11.3"
 	}
 }
