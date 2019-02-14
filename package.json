@@ -13,10 +13,9 @@
 	"author": "Eduardo P. Rivero <jrperedo@gmail.com> (https://blog.eperedo.com/)",
 	"license": "MIT",
 	"dependencies": {
-		"chrome-aws-lambda": "1.11.2",
 		"hapi": "18.1.0",
 		"joi": "14.3.1",
-		"puppeteer-core": "1.12.2"
+		"puppeteer": "1.12.2"
 	},
 	"devDependencies": {
 		"dotenv": "6.2.0",
